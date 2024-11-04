@@ -1,0 +1,28 @@
+package br.com.aulapoo;
+import java.util.Scanner;
+
+public class Calculadora {
+
+	public static void main(String[] args) {
+    	Calculadora calcul = new Calculadora();
+    	int resultado = calcul.Soma();
+    	System.out.println("O resultado da soma é: " + resultado);
+    	int resultado1 = calcul.Subtracao();
+    	System.out.println("O resultado da subtração é: " + resultado1);
+    	int resultado2 = calcul.Divisao();
+    	System.out.println("O resultado da divisáo é: " + resultado2);
+    	int resultado3 = calcul.Multiplicacao();
+    	System.out.println("O resultado da multiplicação é: " + resultado3);
+	} 
+
+	public int Soma() {
+    	Scanner tec = new Scanner(System.in);
+
+    	System.out.println("Insira o valor 1");
+    	int v1 = tec.nextInt();
+    	System.out.println("Insira o valor 2");
+    	int v2 = tec.nextInt();
+    	return v1 + v2;
+    	
+	}
+}
