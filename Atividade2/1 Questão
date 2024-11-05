@@ -1,0 +1,49 @@
+package br.com.aulapoo;
+
+import java.util.Scanner;
+
+public class ContaBancaria {
+    double saldo = 0;
+    Scanner tec = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        ContaBancaria conta = new ContaBancaria();
+        conta.inicio2();
+    }
+
+    void inicio2() {
+        System.out.println("Insira o seu nome");
+        String titular = tec.nextLine();
+        inicio();
+    }
+
+    void inicio() {
+        System.out.println("Olá! Seu saldo atual é: " + saldo + ". Gostaria de fazer um saque ou depósito?");
+        String escolha = tec.nextLine();
+
+        if (escolha.equals("saque")) {
+            System.out.println("Digite o valor do saque:");
+            double vSaque = tec.nextDouble();
+            tec.nextLine(); 
+            if (vSaque > 0 && vSaque <= saldo) {
+                saldo -= vSaque;
+                System.out.println("Saque realizado com sucesso. O seu saldo atual é: " + saldo);
+                inicio();
+            } else {
+                System.out.println("Saldo insuficiente. Coloque um valor que esteja disponível em sua conta.");
+                inicio();
+            }
+        } else if (escolha.equals("deposito")) {
+            System.out.println("Digite o valor do depósito:");
+            double valorDeposito = tec.nextDouble();
+            tec.nextLine(); 
+
+            saldo += valorDeposito;
+            System.out.println("Depósito realizado com sucesso. O seu saldo atual é: " + saldo);
+            inicio();
+        } else {
+            System.out.println("Um erro ocorreu, tente novamente mais tarde");
+            inicio();
+        }
+    }
+}
