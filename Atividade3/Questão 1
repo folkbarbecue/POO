@@ -1,0 +1,140 @@
+package br.com.aulapoo;
+
+import java.util.Scanner;
+
+public class Aulapoo {
+
+    int codigo;
+    String nome;
+    double preco;
+    int quantidade;
+
+    public static void main(String[] args) {
+        Aulapoo loja = new Aulapoo();
+        inicio();
+    }
+
+    static void inicio() {
+        Scanner tec = new Scanner(System.in);
+        System.out.println("Seja bem-vindo às lojas americanas, antes de começarmos, qual é seu nome?");
+        String nome = tec.nextLine();
+        if (nome.equals("gerente")) {
+        } else {
+            System.out.println("Bem-vindo " + nome + "! Você gostaria de comprar alguns desses produtos abaixo?");
+            comprar();
+        }
+    }
+
+    static void comprar() {
+        Scanner tec = new Scanner(System.in);
+
+        int estoqueP = 7;
+        double valorP = 10.99;
+        int estoqueC = 12;
+        double valorC = 3.99;
+        int estoqueF = 5;
+        double valorF = 32.99;
+        int estoqueA = 15;
+        double valorA = 2.99;
+        int estoqueE = 1;
+        double valorE = 170.90;
+
+        int QuantidadeP = 0;
+        int QuantidadeC = 0;
+        int QuantidadeF = 0;
+        int QuantidadeA = 0;
+        int QuantidadeE = 0;
+
+        double total = 0;
+
+        while (true) {
+            System.out.println(" ");
+            System.out.println("<-------------------------------------------->");
+            System.out.println(" ");
+            System.out.println("1. Batata pringles sabor cebola e creme - R$10,99 | Estoque: " + estoqueP);
+            System.out.println("2. Barra de chocolate ao leite garoto 80g - R$3,99 | Estoque: " + estoqueC);
+            System.out.println("3. Fralda descartável huggies tripla proteção m 42 unidades - R$32,99 | Estoque: " + estoqueF);
+            System.out.println("4. Amendoim japonês dori 90g - R$2,99 | Estoque: " + estoqueA);
+            System.out.println("5. Fritadeira Air Fryer Britânia 4,2L 1500W - R$170,90 | Estoque: " + estoqueE);
+            System.out.println("<-------------------------------------------->");
+            System.out.println("Insira abaixo o número do produto e logo após, a quantidade.");
+            String comprando = tec.nextLine();
+
+            if (comprando.equals("1")) {
+                System.out.println("O estoque disponível do produto é: " + estoqueP + " quanto desse produto você gostaria de comprar?");
+                QuantidadeP = tec.nextInt();
+                if (QuantidadeP == 0) {
+                    System.out.println("Compre outro produto então");
+                } else if (QuantidadeP > estoqueP) {
+                    System.out.println("Desculpe, temos apenas " + estoqueP + " unidades em estoque.");
+                } else {
+                    estoqueP -= QuantidadeP;
+                    total += QuantidadeP * valorP;
+                    System.out.println("Você comprou " + QuantidadeP + " unidade(s) de Batata Pringles. Total até agora: R$ " + total);
+                }
+            } else if (comprando.equals("2")) {
+                System.out.println("O estoque disponível do produto é: " + estoqueC + " quanto desse produto você gostaria de comprar?");
+                QuantidadeC = tec.nextInt();
+                if (QuantidadeC == 0) {
+                    System.out.println("Compre outro produto então");
+                } else if (QuantidadeC > estoqueC) {
+                    System.out.println("Desculpe, temos apenas " + estoqueC + " unidades em estoque.");
+                } else {
+                    estoqueC -= QuantidadeC;
+                    total += QuantidadeC * valorC;
+                    System.out.println("Você comprou " + QuantidadeC + " unidade(s) de Barra de Chocolate. Total até agora: R$ " + total);
+                }
+            } else if (comprando.equals("3")) {
+                System.out.println("O estoque disponível do produto é: " + estoqueF + " quanto desse produto você gostaria de comprar?");
+                QuantidadeF = tec.nextInt();
+                if (QuantidadeF == 0) {
+                    System.out.println("Compre outro produto então");
+                } else if (QuantidadeF > estoqueF) {
+                    System.out.println("Desculpe, temos apenas " + estoqueF + " unidades em estoque.");
+                } else {
+                    estoqueF -= QuantidadeF;
+                    total += QuantidadeF * valorF;
+                    System.out.println("Você comprou " + QuantidadeF + " unidade(s) de Fralda Huggies. Total até agora: R$ " + total);
+                }
+            } else if (comprando.equals("4")) {
+                System.out.println("O estoque disponível do produto é: " + estoqueA + " quanto desse produto você gostaria de comprar?");
+                QuantidadeA = tec.nextInt();
+                if (QuantidadeA == 0) {
+                    System.out.println("Compre outro produto então");
+                } else if (QuantidadeA > estoqueA) {
+                    System.out.println("Desculpe, temos apenas " + estoqueA + " unidades em estoque.");
+                } else {
+                    estoqueA -= QuantidadeA;
+                    total += QuantidadeA * valorA;
+                    System.out.println("Você comprou " + QuantidadeA + " unidade(s) de Amendoim Japonês. Total até agora: R$ " + total);
+                }
+            } else if (comprando.equals("5")) {
+                System.out.println("O estoque disponível do produto é: " + estoqueE + " quanto desse produto você gostaria de comprar?");
+                QuantidadeE = tec.nextInt();
+                if (QuantidadeE == 0) {
+                    System.out.println("Compre outro produto então");
+                } else if (QuantidadeE > estoqueE) {
+                    System.out.println("Desculpe, temos apenas " + estoqueE + " unidade(s) em estoque.");
+                } else {
+                    estoqueE -= QuantidadeE;
+                    total += QuantidadeE * valorE;
+                    System.out.println("Você comprou " + QuantidadeE + " unidade(s) de Fritadeira Air Fryer. Total até agora: R$ " + total);
+                }
+            } else {
+                System.out.println("Número inválido, coloque uma numeração válida");
+            }
+
+        
+
+            System.out.println("Você gostaria de comprar outro produto? (S para sim, N para não)");
+            String continuar = tec.nextLine();
+            if (continuar.equalsIgnoreCase("N")) {
+                break; 
+            }
+        }
+
+
+        System.out.println("O valor total da sua compra foi: R$ " + total);
+        System.out.println("Volte sempre!");
+    }
+}
