@@ -1,0 +1,80 @@
+package br.com.contabancaria;
+import java.util.Scanner;
+public class ContaBancaria {
+    protected String titular;
+    protected double saldo;
+    Scanner tec = new Scanner(System.in);
+
+    public ContaBancaria(String titular, double saldoInicial) {
+        this.titular = titular;
+        this.saldo = saldoInicial;
+    }
+
+    public void adicionarSaldo(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Depósito realizado com sucesso. O seu saldo atual é: " + saldo);
+        } else {
+            System.out.println("Valor de depósito inválido.");
+        }
+    }
+
+    public void subtrairSaldo(double valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+            System.out.println("Saque realizado com sucesso. O seu saldo atual é: " + saldo);
+        } else {
+            System.out.println("Saldo insuficiente ou houve i, erro.");
+        }
+    }
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        System.out.println("Insira o seu nome:");
+        String nome = tec.nextLine();
+        ContaBancaria conta;
+
+        System.out.println("Você é Pessoa Física ou Jurídica? (fisica/juridica)");
+        String tipo = tec.nextLine();
+
+        if (tipo.equals("fisica")) {
+            conta = new PessoaF(nome, 0);
+        } else {
+            conta = new PessoaJ(nome, 0);
+        }
+
+        conta.inicio();
+    }
+
+    public void inicio() {
+        Scanner tec = new Scanner(System.in);
+        System.out.println("Olá, " + titular + "! Seu saldo atual é: " + saldo + ". Gostaria de fazer um saque ou depósito?");
+        String escolha = tec.nextLine();
+
+        if (escolha.equals("saque")) {
+            System.out.println("Digite o valor do saque:");
+            double vSaque = tec.nextDouble();
+            tec.nextLine();
+            subtrairSaldo(vSaque);
+        } else if (escolha.equals("deposito")) {
+            System.out.println("Digite o valor do depósito:");
+            double valorDeposito = tec.nextDouble();
+            tec.nextLine();
+            adicionarSaldo(valorDeposito);
+        } else {
+            System.out.println("Opção inválida, tente novamente.");
+        }
+
+        inicio();
+    }
+}
+class PessoaF extends ContaBancaria {
+    public PessoaF(String titular, double saldoInicial) {
+        super(titular, saldoInicial);
+    }
+}
+
+class PessoaJ extends ContaBancaria {
+    public PessoaJ(String titular, double saldoInicial) {
+        super(titular, saldoInicial);
+    }
+}
