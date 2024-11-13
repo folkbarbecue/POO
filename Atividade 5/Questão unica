@@ -15,7 +15,7 @@ public class ContaBancaria {
             saldo += valor;
             System.out.println("Depósito realizado com sucesso. O seu saldo atual é: " + saldo);
         } else {
-            System.out.println("Valor de depósito inválido.");
+            System.out.println("Valor de depósito inválido");
         }
     }
 
@@ -24,7 +24,7 @@ public class ContaBancaria {
             saldo -= valor;
             System.out.println("Saque realizado com sucesso. O seu saldo atual é: " + saldo);
         } else {
-            System.out.println("Saldo insuficiente ou houve i, erro.");
+            System.out.println("Saldo insuficiente ou houve i, erro");
         }
     }
     public static void main(String[] args) {
@@ -35,11 +35,10 @@ public class ContaBancaria {
 
         System.out.println("Você é Pessoa Física ou Jurídica? (fisica/juridica)");
         String tipo = tec.nextLine();
-
-        if (tipo.equals("fisica")) {
-            conta = new PessoaF(nome, 0);
-        } else {
+        if (tipo.equals("juridica")) {
             conta = new PessoaJ(nome, 0);
+        } else {
+            conta = new PessoaF(nome, 0);
         }
 
         conta.inicio();
@@ -61,20 +60,20 @@ public class ContaBancaria {
             tec.nextLine();
             adicionarSaldo(valorDeposito);
         } else {
-            System.out.println("Opção inválida, tente novamente.");
+            System.out.println("Opção inválida, tente mais tarde.");
         }
 
         inicio();
     }
 }
 class PessoaF extends ContaBancaria {
-    public PessoaF(String titular, double saldoInicial) {
+    public PessoaF(String titular, int saldoInicial) {
         super(titular, saldoInicial);
     }
 }
 
 class PessoaJ extends ContaBancaria {
-    public PessoaJ(String titular, double saldoInicial) {
+    public PessoaJ(String titular, int saldoInicial) {
         super(titular, saldoInicial);
     }
 }
