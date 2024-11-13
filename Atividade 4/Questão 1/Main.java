@@ -55,15 +55,15 @@ public class Main {
             }
         } else if (comprando.equals("3")) {
             System.out.println("O estoque disponível do produto é: " + estoqueF + " quanto desse produto você gostaria de comprar?");
-            QuantidadeF = tec.nextInt();
-            if (QuantidadeF == 0) {
+            fralda.quantidade = tec.nextInt();
+            if (fralda.quantidade == 0) {
                 System.out.println("Compre outro produto então");
-            } else if (QuantidadeF > estoqueF) {
+            } else if (fralda.quantidade > estoqueF) {
                 System.out.println("Desculpe, temos apenas " + estoqueF + " unidades em estoque.");
             } else {
-                estoqueF -= QuantidadeF;
-                total += QuantidadeF * valorF;
-                System.out.println("Você comprou " + QuantidadeF + " unidade(s) de Fralda Huggies. Total até agora: R$ " + total);
+                estoqueF -= fralda.quantidade;
+                total += fralda.quantidade * valorF;
+                System.out.println("Você comprou " + fralda.quantidade + " unidade(s) de Fralda Huggies. Total até agora: R$ " + total);
             }
         } else if (comprando.equals("4")) {
             System.out.println("O estoque disponível do produto é: " + estoqueA + " quanto desse produto você gostaria de comprar?");
