@@ -69,11 +69,15 @@ public class ContaBancaria {
 class PessoaF extends ContaBancaria {
     public PessoaF(String titular, int saldoInicial) {
         super(titular, saldoInicial);
+        System.out.println("Insira seu cpf");
+        int cpf = tec.nextInt();
     }
 }
 
 class PessoaJ extends ContaBancaria {
     public PessoaJ(String titular, int saldoInicial) {
         super(titular, saldoInicial);
+        System.out.println("Insira seu cnpj");
+        int cnpj = tec.nextInt();
     }
 }
